@@ -5,9 +5,13 @@ import ReactDOM from "react-dom/client";
 const Title = () => {
     return <h1 className="heading">Namaste React using JSX</h1>;
 }
+
+const number = 1000;
+
 const HeadingComponent = () => {
     return (
         <div className="container">
+            {number}
             <Title />
             <h1>Namaste React Functional Component</h1>
         </div>
