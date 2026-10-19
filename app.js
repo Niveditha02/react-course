@@ -1,9 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-// JSX => Parcel transpiles react code => Reactelement => ReactElement - JS Object => HTML element (render)
+// React component
 
-
-const JSXElement = <h1 id="heading">Namste React</h1>
+const HeadingComponent = () => {
+    return <h1>Namaste React Functional Component</h1>;
+}
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(JSXElement);
+root.render(<HeadingComponent />);
