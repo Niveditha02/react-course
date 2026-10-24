@@ -1,0 +1,59 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid black;
+}
+
+.logo img{
+    width:50px;
+    height: auto;
+    display: block;
+}
+
+.nav-items{
+    display: flex;
+    align-items:center;
+}
+
+.nav-items ul{
+    display: flex;
+    list-style-type: none;
+    padding: 0px 20px;
+}
+
+.nav-items ul li{
+    padding: 20px;
+}
+
+.search{
+    padding: 10px;
+}
+
+/* grid is used to arrange the contents row or comlumnwise */
+.restaurant-container{
+    display: grid;
+    gap: 10px;
+    padding:5px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    justify-content: space-around;
+}
+
+.restaurant-card:hover{
+    outline: 1px solid black;
+    cursor:pointer;
+}
+
+.restaurant-card {
+    width: 200px;
+}
+
+.restaurant-card img{
+    width: 80%;
+}
