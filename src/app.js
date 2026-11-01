@@ -1,5 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import Header from "./components/Header";
+import Body from "./components/Body";
 
 
 // app will have following files
@@ -8,36 +10,20 @@ import ReactDOM from "react-dom/client";
 // - Footer : Copyright, links, address, contact
 
 // 1 Header component
-const HeadingComponent = () => {
-    return (
-        <div className="header">
-            <div className = "logo">
-                <img src={new URL("./images/logo.jpeg", import.meta.url).href} alt="logo" />
-            </div>
-            <div className="nav-items">
-                <ul>
-                    <li>Home</li>
-                    <li>About</li>
-                    <li>Contact</li>
-                </ul>
-            </div>
-        </div>
-    )
-}
 
-const RestaurantCard = ({resData}) =>{
+function RestaurantCard({ resData }) {
     const info = resData.info;
-    return(
-        <div className ="restaurant-card">
-            <img className="restaurant-logo"    
-            src={`https://media-assets.swiggy.com/swiggy/image/upload/${info.cloudinaryImageId}`} alt={info.name}/>
+    return (
+        <div className="restaurant-card">
+            <img className="restaurant-logo"
+                src={`https://media-assets.swiggy.com/swiggy/image/upload/${info.cloudinaryImageId}`} alt={info.name} />
             <h3>{info.name}</h3>
             <h4>{info.cuisines.join(" , ")}</h4>
             <h4>{info.avgRating}</h4>
             <h4>{info.costForTwo / 100}</h4>
             <h4>{info.sla.deliveryTime} minutes</h4>
         </div>
-    )
+    );
 }
 
 const resObj = {
@@ -650,24 +636,12 @@ const restaurantList = [
     { info: resObj.restaurantGoodFlippin },
 ];
 
-// 2.Body component
-const Body = ()=>{
-    return(
-        <div className="body">
-            <div className="search">Search</div>
-            <div className="restaurant-container">
-                {restaurantList.map((restaurant) => (
-                    <RestaurantCard key={restaurant.info.id} resData={restaurant} />
-                ))}
-            </div>
-        </div>
-    )
-}
+
 
 const AppLayout = () => {
     return(
         <div className="app">
-            <HeadingComponent />
+            <Header />
             <Body />
         </div>
     )
