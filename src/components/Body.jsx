@@ -3,7 +3,7 @@ import { useState } from "react";
 
 // 2.Body component
 const Body = ()=>{
-    let  ListofRestuarants = [
+    const [ListofRestuarants, setListofRestuarants] = useState([
         {
             id: "981134",
             name: "Gochick By Imperio",
@@ -35,14 +35,14 @@ const Body = ()=>{
            deliveryTime: 58,
 
         }
-    ]
+    ]);
 
     return(
         <div className="body">
             <div className="filter">
                 <button className="filter-btn" onClick={()=>{
-                    ListofRestuarants = ListofRestuarants.filter((res)=> res.avgRating > 4);
-                    console.log(ListofRestuarants);
+                    const filteredRestaurants = ListofRestuarants.filter((res)=> res.avgRating > 4);
+                    setListofRestuarants(filteredRestaurants);
                 }}>Top Rated Restaurants</button>
             </div>
             <div className="restaurant-container">
