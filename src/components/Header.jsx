@@ -1,4 +1,4 @@
-import imageUrl from "../utils/constants";
+import {imageUrl} from "../utils/constants";
 const Header = () => {
     return (
         <div className="header">

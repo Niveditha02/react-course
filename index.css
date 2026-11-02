@@ -57,3 +57,9 @@
 .restaurant-card img{
     width: 80%;
 }
+
+.filter{
+    display: flex;
+    padding: 20px;
+}
+
