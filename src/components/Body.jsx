@@ -1,6 +1,6 @@
 import RestaurantCard from "./RestaurantCard";
 import { useState, useEffect} from "react";
-import restaurantList from "../utils/mockData";
+import Shimmer from "react-shimmer";
 
 // 2.Body component
 const Body = ()=>{
@@ -20,6 +20,11 @@ const Body = ()=>{
         // optional chaining is used to avoid errors if any of the properties are undefined 
         setListofRestuarants(json?.data?.cards[2]?.data?.data?.cards);
     }
+
+    if(ListofRestuarants.length === 0){
+        return <Shimmer />
+    }
+
 
     return(
         <div className="body">
