@@ -25,8 +25,8 @@ const Body = ()=>{
         return <Shimmer />
     }
 
-
-    return(
+// using ternary operator to check if the list of restaurants is empty, if yes then show shimmer else show the list of restaurants  
+    return ListofRestuarants.length === 0 ? <Shimmer/> : (
         <div className="body">
             <div className="filter">
                 <button className="filter-btn" onClick={()=>{
