@@ -1,10 +1,24 @@
 import RestaurantCard from "./RestaurantCard";
-import { useState } from "react";
+import { useState, useEffect} from "react";
 import restaurantList from "../utils/mockData";
 
 // 2.Body component
 const Body = ()=>{
     const [ListofRestuarants, setListofRestuarants] = useState(restaurantList);
+
+    useEffect(()=>{
+        fetchData();
+    },[]);
+
+    console.log("Body rendered");
+
+    // Fetch the data from API
+    const fetchData = async()=> {
+        const data = await fetch("https://www.swiggy.com/dapi/restaurants/search/v3?lat=12.9753&lng=77.591&str=dinner&trackingId=undefined&submitAction=ENTER&queryUniqueId=0d870831-1af4-c2a3-e923-ebb761db08b4&facets=%7B%22VEG_IDENTIFIER%22%3A%5B%7B%22id%22%3A%22NONVEG%22%2C%22operator%22%3A%22EQ%22%2C%22label%22%3A%22Non-Veg%22%7D%5D%7D&selectedPLTab=DISH");
+        const json = await data.json();
+        console.log(json);
+        setListofRestuarants(json?.data?.cards[2]?.data?.data?.cards);
+    }
 
     return(
         <div className="body">
