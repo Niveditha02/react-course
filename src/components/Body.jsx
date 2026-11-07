@@ -6,6 +6,8 @@ import restaurantList from "../utils/mockData";
 // 2.Body component
 const Body = ()=>{
     const [ListofRestuarants, setListofRestuarants] = useState(restaurantList);
+    const [searchText, setSearchText] = useState("");
+    const [filteredRestaurants, setFilteredRestaurants] = useState([]);
 
     // useEffect(()=>{
     //     fetchData();
@@ -22,13 +24,20 @@ const Body = ()=>{
     //     setListofRestuarants(json?.data?.cards[2]?.data?.data?.cards);
     // }
 
-    if(ListofRestuarants.length === 0){
-        return <Shimmer />
-    }
+    // if(ListofRestuarants.length === 0){
+    //     return <Shimmer />
+    // }
 
 // using ternary operator to check if the list of restaurants is empty, if yes then show shimmer else show the list of restaurants  
     return ListofRestuarants.length === 0 ? <Shimmer/> : (
         <div className="body">
+            <div className="search">
+                <input type="text" className="search-box" value={searchText} onChange={(e)=> setSearchText(e.target.value)}/>
+                <button onClick={()=>{
+                    const filteredRestaurants = ListofRestuarants.filter((res)=> res.info.name.toLowerCase().includes(searchText.toLowerCase()));
+                    setFilteredRestaurants(filteredRestaurants);
+                }}>Search</button>
+            </div>
             <div className="filter">
                 <button className="filter-btn" onClick={()=>{
                     const filteredRestaurants = ListofRestuarants.filter((res)=> res.info.avgRating > 4.3);
@@ -36,7 +45,9 @@ const Body = ()=>{
                 }}>Top Rated Restaurants</button>
             </div>
             <div className="restaurant-container">
-                {ListofRestuarants.map((restaurant) => (
+                {filteredRestaurants.length > 0 ? filteredRestaurants.map((restaurant) => (
+                    <RestaurantCard key={restaurant.info.id} resData={restaurant} />
+                )) : ListofRestuarants.map((restaurant) => (
                     <RestaurantCard key={restaurant.info.id} resData={restaurant} />
                 ))}
             </div>
