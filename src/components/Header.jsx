@@ -1,5 +1,7 @@
 import {imageUrl} from "../utils/constants";
+import {useState} from "react";
 const Header = () => {
+    const [btnNameReact, setBtnNameReact] = useState("Login");
     return (
         <div className="header">
             <div className = "logo">
@@ -10,6 +12,7 @@ const Header = () => {
                     <li>Home</li>
                     <li>About</li>
                     <li>Contact</li>
+                    <button className="login" onClick={()=>{setBtnNameReact("Logout")}}>{btnNameReact}</button>
                 </ul>
             </div>
         </div>
