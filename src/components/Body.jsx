@@ -1,46 +1,69 @@
+import { useState, useEffect } from "react";
 import RestaurantCard from "./RestaurantCard";
-import { useState, useEffect} from "react";
-import Shimmer from "react-shimmer";
 
-// 2.Body component
-const Body = ()=>{
-    const [ListofRestuarants, setListofRestuarants] = useState(restaurantList);
+const Body = () => {
+    const [listOfRestaurant, setListOfRestaurant] = useState([]);
+    const [filteredRestaurant, setFilteredRestaurant] = useState([]);
+    const [searchText, setSearchText] = useState("");
 
-    useEffect(()=>{
+    useEffect(() => {
         fetchData();
-    },[]);
+    }, []);
 
-    console.log("Body rendered");
-
-    // Fetch the data from API
-    const fetchData = async()=> {
-        const data = await fetch("https://www.swiggy.com/dapi/restaurants/search/v3?lat=12.9753&lng=77.591&str=dinner&trackingId=undefined&submitAction=ENTER&queryUniqueId=0d870831-1af4-c2a3-e923-ebb761db08b4&facets=%7B%22VEG_IDENTIFIER%22%3A%5B%7B%22id%22%3A%22NONVEG%22%2C%22operator%22%3A%22EQ%22%2C%22label%22%3A%22Non-Veg%22%7D%5D%7D&selectedPLTab=DISH");
+    const fetchData = async () => {
+        const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9753&lng=77.591&collection=83631&tags=layout_CCS_Pizza&sortBy=&filters=&type=rcv2&offset=0&page_type=null");
         const json = await data.json();
-        console.log(json);
-        // optional chaining is used to avoid errors if any of the properties are undefined 
-        setListofRestuarants(json?.data?.cards[2]?.data?.data?.cards);
-    }
+        const restaurants = (json?.data?.cards ?? []).flatMap((item) => {
+            const info = item?.card?.card?.info;
+            return info ? [{ info }] : [];
+        });
+        console.log(restaurants);
+        setListOfRestaurant(restaurants);
+        setFilteredRestaurant(restaurants);
+    };
 
-    if(ListofRestuarants.length === 0){
-        return <Shimmer />
-    }
-
-// using ternary operator to check if the list of restaurants is empty, if yes then show shimmer else show the list of restaurants  
-    return ListofRestuarants.length === 0 ? <Shimmer/> : (
-        <div className="body">
-            <div className="filter">
-                <button className="filter-btn" onClick={()=>{
-                    const filteredRestaurants = ListofRestuarants.filter((res)=> res.info.avgRating > 4.3);
-                    setListofRestuarants(filteredRestaurants);
-                }}>Top Rated Restaurants</button>
+    return listOfRestaurant.length === 0 ? (
+        <p>Loading restaurants...</p>
+    ) : (
+        <div className="container body">
+            <div className="filter-btn">
+                <div className="search">
+                    <input
+                        type="text"
+                        className="search-box"
+                        value={searchText}
+                        onChange={(event) => setSearchText(event.target.value)}
+                    />
+                    <button
+                        className="searchBtn"
+                        onClick={() => {
+                            const filteredRestaurants = listOfRestaurant.filter((res) =>
+                                res.info.name.toLowerCase().includes(searchText.toLowerCase())
+                            );
+                            setFilteredRestaurant(filteredRestaurants);
+                        }}
+                    >
+                        Search
+                    </button>
+                </div>
+                <button
+                    onClick={() => {
+                        const topRestaurants = listOfRestaurant.filter(
+                            (res) => res.info.avgRating > 4
+                        );
+                        setFilteredRestaurant(topRestaurants);
+                    }}
+                >
+                    Top Restaurants
+                </button>
             </div>
             <div className="restaurant-container">
-                {ListofRestuarants.map((restaurant) => (
+                {filteredRestaurant.map((restaurant) => (
                     <RestaurantCard key={restaurant.info.id} resData={restaurant} />
                 ))}
             </div>
         </div>
-    )
+    );
 };
 
 export default Body;
