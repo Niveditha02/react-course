@@ -5,23 +5,40 @@ class UserClass extends React.Component {
     constructor(props) {
         super(props);
         // state in class component is an object
-        this.state = {
-            count : 0,
-        };
         console.log(props);
+
+        this.state = {
+        userInfo: {
+            name: "Dummy Name",
+            location: "Dummy Location"
+        }
     }
-    componentDidMount() {
+    }
+
+
+    
+
+    async componentDidMount() {
+        const response = await fetch("https://api.github.com/users/niveditha02");
+        const data = await response.json();
+        console.log(data);
+        this.setState({userInfo:data});
         console.log("Component Mounted");
     }
 
+    componentDidUpdate(){
+        console.log("Component Did update");
+    }
+
+   
     render() {
+        const {name, location,avatar_url} = this.state.userInfo;
         return(
             <div className="User">
                 {/* inherit state */}
-                <button onClick={() => this.setState({count: this.state.count + 1})}>Increment</button>
-                <h1>Count : {this.state.count}</h1>
-                <h2>Name: {this.props.name}</h2>
-                <h2>Location: Mangalore</h2>
+                <img src={avatar_url}/>
+                <h2>Name: {name}</h2>
+                <h2>Location: {location}</h2>
                 <h3>Contact: @niveditha</h3>
             </div>
         )
