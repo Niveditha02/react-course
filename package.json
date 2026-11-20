@@ -21,6 +21,7 @@
   "type": "module",
   "scripts": {
     "start": "parcel index.html",
+    "proxy": "node proxy-server.js",
     "build": "parcel build index.html",
     "test": "jest"
   },

@@ -5,22 +5,31 @@ const Body = () => {
     const [listOfRestaurant, setListOfRestaurant] = useState([]);
     const [filteredRestaurant, setFilteredRestaurant] = useState([]);
     const [searchText, setSearchText] = useState("");
+    const [error, setError] = useState("");
 
     useEffect(() => {
         fetchData();
     }, []);
 
     const fetchData = async () => {
-        const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9753&lng=77.591&collection=83631&tags=layout_CCS_Pizza&sortBy=&filters=&type=rcv2&offset=0&page_type=null");
-        const json = await data.json();
-        const restaurants = (json?.data?.cards ?? []).flatMap((item) => {
-            const info = item?.card?.card?.info;
-            return info ? [{ info }] : [];
-        });
-        console.log(restaurants);
-        setListOfRestaurant(restaurants);
-        setFilteredRestaurant(restaurants);
+        try {
+            const response = await fetch("http://localhost:3001/api/restaurants");
+            if (!response.ok) throw new Error(`Request failed (${response.status})`);
+
+            const json = await response.json();
+            const restaurants = (json?.data?.cards ?? []).flatMap((item) => {
+                const info = item?.card?.card?.info;
+                return info ? [{ info }] : [];
+            });
+            setListOfRestaurant(restaurants);
+            setFilteredRestaurant(restaurants);
+        } catch (error) {
+            console.error("Could not load restaurants:", error);
+            setError("Could not load restaurants. Start the proxy with npm run proxy.");
+        }
     };
+
+    if (error) return <p role="alert">{error}</p>;
 
     return listOfRestaurant.length === 0 ? (
         <p>Loading restaurants...</p>
