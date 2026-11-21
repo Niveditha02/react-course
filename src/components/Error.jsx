@@ -1,21 +1,18 @@
-import {isRouteErrorResponse, useRouteError} from "react-router";
+import { useRouteError } from "react-router-dom";
 
 const Error = () => {
     const err = useRouteError();
     console.error(err);
-    const message = err instanceof globalThis.Error
-        ? err.message
-        : isRouteErrorResponse(err)
-            ? err.statusText || String(err.data ?? "Request failed")
-            : "An unexpected error occurred.";
 
-    return(
-        <div>
-            <h1>Something went wrong</h1>
-            {isRouteErrorResponse(err) && <h3>{err.status}: {err.statusText}</h3>}
-            <p>{message}</p>
+    return (
+        <div style={{ padding: "20px", textAlign: "center" }}>
+            <h1>Oops! Something went wrong</h1>
+            <h2>
+                {err?.status ? `${err.status} : ${err.statusText}` : "An error occurred"}
+            </h2>
+            <p>{err?.data || err?.message || "Please check the console for details."}</p>
         </div>
-    )
-}
+    );
+};
 
 export default Error;

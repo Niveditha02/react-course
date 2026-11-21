@@ -1,5 +1,5 @@
 import {imageUrl} from "../utils/constants";
-import {Link} from "react-router";
+import { Link } from "react-router-dom";
 const Header = () => {
     return (
         <div className="header">

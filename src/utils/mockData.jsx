@@ -608,4 +608,287 @@ const restaurantList = [
     { info: resObj.restaurantGoodFlippin },
 ];
 
+const mockMenuData = {
+  // Gochick By Imperio (981134)
+  "981134": [
+    {
+      card: {
+        info: {
+          id: "101",
+          name: "Crispy Fried Chicken Burger",
+          price: 24900,
+          description: "Tender crunchy fried chicken fillet topped with fresh lettuce, sliced tomatoes, and house garlic mayo in a toasted brioche bun.",
+          imageId: "FOOD_CATALOG/IMAGES/CMS/2024/4/13/e1db0b28-1b5e-4c77-b952-ec3e8dcaad87_8b5df8eb-0f1c-4b68-b7b5-0219cba59543.jpg",
+          ratings: { aggregatedRating: { rating: "4.4" } },
+          isVeg: false,
+        },
+      },
+    },
+    {
+      card: {
+        info: {
+          id: "102",
+          name: "Fiery Peri Peri Chicken Wrap",
+          price: 19900,
+          description: "Crispy spiced chicken tossed in peri peri seasonings, rolled in tortilla bread with pickled veggies and mint sauce.",
+          imageId: "FOOD_CATALOG/IMAGES/CMS/2024/4/13/c117d7ee-4f36-4c4f-9e7c-a496fb7ea418_3c58be21-1718-4dfb-9b76-4d081f95d527.jpg",
+          ratings: { aggregatedRating: { rating: "4.3" } },
+          isVeg: false,
+        },
+      },
+    },
+    {
+      card: {
+        info: {
+          id: "103",
+          name: "Spicy Peri Peri Crinkle Fries",
+          price: 12900,
+          description: "Crispy crinkle cut fries generously dusted with spicy African bird's eye chili seasoning.",
+          imageId: "FOOD_CATALOG/IMAGES/CMS/2024/4/13/1932fa5a-ebbf-412f-9818-dfb79e27303f_d7f262e3-289b-4395-9ff4-4d207ec17fa4.jpg",
+          ratings: { aggregatedRating: { rating: "4.5" } },
+          isVeg: true,
+        },
+      },
+    },
+    {
+      card: {
+        info: {
+          id: "104",
+          name: "Loaded Cheese Chicken Fries",
+          price: 18900,
+          description: "Crispy french fries topped with seasoned shredded chicken, melted cheddar cheese sauce, and jalapeños.",
+          imageId: "FOOD_CATALOG/IMAGES/CMS/2024/4/13/1932fa5a-ebbf-412f-9818-dfb79e27303f_d7f262e3-289b-4395-9ff4-4d207ec17fa4.jpg",
+          ratings: { aggregatedRating: { rating: "4.6" } },
+          isVeg: false,
+        },
+      },
+    },
+    {
+      card: {
+        info: {
+          id: "105",
+          name: "Chilled Hazelnut Cold Coffee",
+          price: 14900,
+          description: "Rich espresso blended with chilled milk and aromatic hazelnut syrup, served over ice.",
+          imageId: "FOOD_CATALOG/IMAGES/CMS/2024/4/13/2f66453d-2490-4e32-9cb1-fc60ea47f70b_240ea89b-bf08-410c-99c0-18e384c75952.jpg",
+          ratings: { aggregatedRating: { rating: "4.7" } },
+          isVeg: true,
+        },
+      },
+    },
+  ],
+
+  // Wendy's Burgers (953489)
+  "953489": [
+    {
+      card: {
+        info: {
+          id: "201",
+          name: "Wendy's Classic Baconator Burger",
+          price: 29900,
+          description: "Two freshly grilled tender patties with melted American cheese, crispy smoked bacon, and creamy mayo.",
+          imageId: "FOOD_CATALOG/IMAGES/CMS/2024/4/13/e1db0b28-1b5e-4c77-b952-ec3e8dcaad87_8b5df8eb-0f1c-4b68-b7b5-0219cba59543.jpg",
+          ratings: { aggregatedRating: { rating: "4.6" } },
+          isVeg: false,
+        },
+      },
+    },
+    {
+      card: {
+        info: {
+          id: "202",
+          name: "Crispy Veggie Crunch Burger",
+          price: 16900,
+          description: "Wholesome vegetable and pea patty coated in golden breadcrumbs with thousand island spread.",
+          imageId: "FOOD_CATALOG/IMAGES/CMS/2024/4/13/e1db0b28-1b5e-4c77-b952-ec3e8dcaad87_8b5df8eb-0f1c-4b68-b7b5-0219cba59543.jpg",
+          ratings: { aggregatedRating: { rating: "4.3" } },
+          isVeg: true,
+        },
+      },
+    },
+    {
+      card: {
+        info: {
+          id: "203",
+          name: "Crispy Chicken Nuggets (8 Pcs)",
+          price: 18900,
+          description: "Tender white meat chicken bites coated in seasoned breading, served with smoky BBQ sauce.",
+          imageId: "FOOD_CATALOG/IMAGES/CMS/2024/4/13/1932fa5a-ebbf-412f-9818-dfb79e27303f_d7f262e3-289b-4395-9ff4-4d207ec17fa4.jpg",
+          ratings: { aggregatedRating: { rating: "4.4" } },
+          isVeg: false,
+        },
+      },
+    },
+    {
+      card: {
+        info: {
+          id: "204",
+          name: "Chocolate Frosty Thick Shake",
+          price: 13900,
+          description: "The signature thick, creamy chocolate dessert shake that you can eat with a spoon.",
+          imageId: "FOOD_CATALOG/IMAGES/CMS/2024/4/13/2f66453d-2490-4e32-9cb1-fc60ea47f70b_240ea89b-bf08-410c-99c0-18e384c75952.jpg",
+          ratings: { aggregatedRating: { rating: "4.7" } },
+          isVeg: true,
+        },
+      },
+    },
+  ],
+
+  // McDonald's (43836)
+  "43836": [
+    {
+      card: {
+        info: {
+          id: "301",
+          name: "McSpicy Chicken Burger",
+          price: 19900,
+          description: "Tender and juicy chicken patty coated in spicy, crispy batter, topped with creamy sauce and fresh shredded lettuce.",
+          imageId: "FOOD_CATALOG/IMAGES/CMS/2024/4/13/e1db0b28-1b5e-4c77-b952-ec3e8dcaad87_8b5df8eb-0f1c-4b68-b7b5-0219cba59543.jpg",
+          ratings: { aggregatedRating: { rating: "4.4" } },
+          isVeg: false,
+        },
+      },
+    },
+    {
+      card: {
+        info: {
+          id: "302",
+          name: "McAloo Tikki Burger",
+          price: 6900,
+          description: "A combination of potato and peas patty with special spices coated with breadcrumbs, served with sweet tomato mayo.",
+          imageId: "FOOD_CATALOG/IMAGES/CMS/2024/4/13/e1db0b28-1b5e-4c77-b952-ec3e8dcaad87_8b5df8eb-0f1c-4b68-b7b5-0219cba59543.jpg",
+          ratings: { aggregatedRating: { rating: "4.2" } },
+          isVeg: true,
+        },
+      },
+    },
+    {
+      card: {
+        info: {
+          id: "303",
+          name: "World Famous French Fries (L)",
+          price: 13500,
+          description: "Golden on the outside, soft and fluffy on the inside. Salted to perfection.",
+          imageId: "FOOD_CATALOG/IMAGES/CMS/2024/4/13/1932fa5a-ebbf-412f-9818-dfb79e27303f_d7f262e3-289b-4395-9ff4-4d207ec17fa4.jpg",
+          ratings: { aggregatedRating: { rating: "4.5" } },
+          isVeg: true,
+        },
+      },
+    },
+    {
+      card: {
+        info: {
+          id: "304",
+          name: "Oreo McFlurry Medium",
+          price: 11900,
+          description: "Delicious soft serve vanilla ice cream with crunchy Oreo cookie pieces blended throughout.",
+          imageId: "FOOD_CATALOG/IMAGES/CMS/2024/4/13/2f66453d-2490-4e32-9cb1-fc60ea47f70b_240ea89b-bf08-410c-99c0-18e384c75952.jpg",
+          ratings: { aggregatedRating: { rating: "4.6" } },
+          isVeg: true,
+        },
+      },
+    },
+  ],
+
+  // Bob's Bar (1060334)
+  "1060334": [
+    {
+      card: {
+        info: {
+          id: "401",
+          name: "Chicken Ghee Roast Biryani",
+          price: 34900,
+          description: "Fragrant jeera samba rice cooked with tender chicken roasted in authentic Kundapur ghee roast masala.",
+          imageId: "FOOD_CATALOG/IMAGES/CMS/2024/4/13/e1db0b28-1b5e-4c77-b952-ec3e8dcaad87_8b5df8eb-0f1c-4b68-b7b5-0219cba59543.jpg",
+          ratings: { aggregatedRating: { rating: "4.7" } },
+          isVeg: false,
+        },
+      },
+    },
+    {
+      card: {
+        info: {
+          id: "402",
+          name: "Mangalore Paneer Ghee Roast",
+          price: 26900,
+          description: "Soft paneer cubes tossed in rich byadgi chili and whole spice infused clarified butter.",
+          imageId: "FOOD_CATALOG/IMAGES/CMS/2024/4/13/c117d7ee-4f36-4c4f-9e7c-a496fb7ea418_3c58be21-1718-4dfb-9b76-4d081f95d527.jpg",
+          ratings: { aggregatedRating: { rating: "4.5" } },
+          isVeg: true,
+        },
+      },
+    },
+    {
+      card: {
+        info: {
+          id: "403",
+          name: "Filter Coffee Tres Leches",
+          price: 17900,
+          description: "Spongy cake soaked in three varieties of sweet milk infused with freshly brewed South Indian filter coffee.",
+          imageId: "FOOD_CATALOG/IMAGES/CMS/2024/4/13/2f66453d-2490-4e32-9cb1-fc60ea47f70b_240ea89b-bf08-410c-99c0-18e384c75952.jpg",
+          ratings: { aggregatedRating: { rating: "4.8" } },
+          isVeg: true,
+        },
+      },
+    },
+  ],
+
+  // Default fallback for any other restaurant ID (Fat Smash, Easybites, Good Flippin, 1234, etc.)
+  "default": [
+    {
+      card: {
+        info: {
+          id: "501",
+          name: "Signature Double Smash Burger",
+          price: 27900,
+          description: "Two crispy smashed patties with gooey melted cheddar, caramelized onions, and house special sauce.",
+          imageId: "FOOD_CATALOG/IMAGES/CMS/2024/4/13/e1db0b28-1b5e-4c77-b952-ec3e8dcaad87_8b5df8eb-0f1c-4b68-b7b5-0219cba59543.jpg",
+          ratings: { aggregatedRating: { rating: "4.6" } },
+          isVeg: false,
+        },
+      },
+    },
+    {
+      card: {
+        info: {
+          id: "502",
+          name: "Paneer Tikka Roll / Wrap",
+          price: 19900,
+          description: "Tandoori grilled cottage cheese cubes wrapped with crisp onions, capsicum, and spiced mint chutney.",
+          imageId: "FOOD_CATALOG/IMAGES/CMS/2024/4/13/c117d7ee-4f36-4c4f-9e7c-a496fb7ea418_3c58be21-1718-4dfb-9b76-4d081f95d527.jpg",
+          ratings: { aggregatedRating: { rating: "4.3" } },
+          isVeg: true,
+        },
+      },
+    },
+    {
+      card: {
+        info: {
+          id: "503",
+          name: "Crispy Seasoned Potato Wedges",
+          price: 14900,
+          description: "Golden fried thick potato wedges seasoned with herbs and garlic.",
+          imageId: "FOOD_CATALOG/IMAGES/CMS/2024/4/13/1932fa5a-ebbf-412f-9818-dfb79e27303f_d7f262e3-289b-4395-9ff4-4d207ec17fa4.jpg",
+          ratings: { aggregatedRating: { rating: "4.4" } },
+          isVeg: true,
+        },
+      },
+    },
+    {
+      card: {
+        info: {
+          id: "504",
+          name: "Chilled Belgium Chocolate Shake",
+          price: 15900,
+          description: "Decadent dark Belgian chocolate blended with creamy ice cream and topped with choco chips.",
+          imageId: "FOOD_CATALOG/IMAGES/CMS/2024/4/13/2f66453d-2490-4e32-9cb1-fc60ea47f70b_240ea89b-bf08-410c-99c0-18e384c75952.jpg",
+          ratings: { aggregatedRating: { rating: "4.7" } },
+          isVeg: true,
+        },
+      },
+    },
+  ],
+};
+
+export { restaurantList, mockMenuData };
 export default restaurantList;
