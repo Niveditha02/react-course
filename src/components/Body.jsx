@@ -8,16 +8,16 @@ const Body = () => {
 
     return (
         <div className="container body">
-            <div className="filter-btn">
-                <div className="search">
+            <div className="filter-btn flex m-4 p-4">
+                <div className="search ">
                     <input
                         type="text"
-                        className="search-box"
+                        className="border border-solid border-black"
                         value={searchText}
                         onChange={(event) => setSearchText(event.target.value)}
                     />
                     <button
-                        className="searchBtn"
+                        className="px-2 bg-green-100 m-4 border border-solid border-black"
                         onClick={() => {
                             const filteredRestaurants = restaurantList.filter((res) =>
                                 res.info.name.toLowerCase().includes(searchText.toLowerCase())
@@ -28,7 +28,7 @@ const Body = () => {
                         Search
                     </button>
                 </div>
-                <button className="filter-btn"
+                <button className="flex bg-blue-300 m-4 border border-solid border-black"
                     onClick={() => {
                     const topRestaurants = restaurantList.filter(
                             (res) => res.info.avgRating > 4
@@ -39,7 +39,7 @@ const Body = () => {
                     Top Restaurants
                 </button>
             </div>
-            <div className="restaurant-container">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 {filteredRestaurant.map((restaurant) => (
                     <RestaurantCard key={restaurant.info.id} resData={restaurant} />
                 ))}
