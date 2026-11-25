@@ -1,10 +1,11 @@
 import { useState } from "react";
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard,  {withPromotedLabel} from "./RestaurantCard";
 import restaurantList from "../utils/mockData";
 
 const Body = () => {
     const [filteredRestaurant, setFilteredRestaurant] = useState(restaurantList);
     const [searchText, setSearchText] = useState("");
+    const RestaurantCardPromoted = withPromotedLabel(RestaurantCard);
 
     return (
         <div className="container body">
@@ -41,7 +42,8 @@ const Body = () => {
             </div>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 {filteredRestaurant.map((restaurant) => (
-                    <RestaurantCard key={restaurant.info.id} resData={restaurant} />
+                   <RestaurantCardPromoted key = {restaurant.info.id} resData = {restaurant}/>
+                   
                 ))}
             </div>
         </div>

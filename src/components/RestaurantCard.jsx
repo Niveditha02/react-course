@@ -21,4 +21,25 @@ function RestaurantCard({ resData }) {
     );
 }
 
+// Higher Order Component
+// input - RestaurantCard ==> RestaurantCardPromoted
+
+export const withPromotedLabel = (RestaurantCard) => {
+    return function RestaurantCardWithPromotedLabel({ resData }) {
+        const info = resData.info ?? resData;
+
+        return (
+            <div className="relative">
+                {info.promoted && (
+                    <span className="absolute left-2 top-2 z-10 rounded bg-black px-2 py-1 text-xs font-semibold text-white">
+                        Promoted
+                    </span>
+                )}
+                <RestaurantCard resData={resData} />
+            </div>
+        );
+    };
+};
+
+
 export default RestaurantCard;
